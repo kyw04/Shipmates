@@ -10,15 +10,4 @@ public class GameOverToMain : MonoBehaviour, IPointerDownHandler
     {
         SceneManager.LoadScene("Lobby");
     }
-
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
