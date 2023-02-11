@@ -18,25 +18,32 @@ public class Pause : MonoBehaviour
         animator = numberImage.GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("End"))
+        {
+            Debug.Log("2");
+            unpaused = false;
+            isPause = false;
+            Time.timeScale = 1f;
+        }
+    }
+
     public void OnClick()
     {
-        if(isPause == false)
-        {
-            isPause = true;
-            Time.timeScale = 0f;
-            Debug.Log("pause");
-        }
-        else if(isPause == true && unpaused == false) 
+        if (isPause == true && unpaused == false)
         {
             Debug.Log("unpause");
             animator.Play("ShowTime");
             unpaused = true;
         }
-
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle") && unpaused == true)
+        if (isPause == false)
         {
-            unpaused = false;
-            Time.timeScale = 1f;
+            isPause = true;
+            Time.timeScale = 0f;
+            Debug.Log("pause");
         }
+
+       
     }
 }

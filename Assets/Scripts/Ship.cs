@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Ship : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            SceneManager.LoadScene("GameOver");
             Debug.Log("collision");
         }
     }
