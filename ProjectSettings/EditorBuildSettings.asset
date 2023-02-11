@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Test_doyun.unity
+    guid: eb8342652d2718b4cbd13481c34ece71
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: faff7befb129635409ff628b5664ab7a
   m_configObjects: {}
