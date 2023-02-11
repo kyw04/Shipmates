@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 
 public class Pause : MonoBehaviour
 {
