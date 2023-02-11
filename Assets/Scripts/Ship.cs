@@ -18,11 +18,11 @@ public class Ship : MonoBehaviour
     {
         if (Input.GetMouseButtonUp(0))
         {
-            if (slider.value <= 0.15f && index > 0)
+            if (slider.value <= 0.4f && index > 0)
             {
                 index--;
             }
-            else if (slider.value >= 0.65f && index < postions.Length - 1)
+            else if (slider.value >= 0.6f && index < postions.Length - 1)
             {
                 index++;
             }
