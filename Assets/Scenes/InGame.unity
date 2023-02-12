@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audio1: 1
-  theaudio: {fileID: 1419039914}
+  theaudio: {fileID: 0}
   BGMplayer: {fileID: 1419039913}
   clips:
-  - {fileID: 8300000, guid: 6739c01659ad96d47987f4ddee226b36, type: 3}
+  - {fileID: 8300000, guid: 1174d1b6cd51b6646b219f87786c503b, type: 3}
 --- !u!4 &345677689
 Transform:
   m_ObjectHideFlags: 0
@@ -392,6 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numberImage: {fileID: 758972287}
   SettingsPage: {fileID: 682629632}
+  PauseButton: {fileID: 2000479385}
   isPause: 0
   unpaused: 0
 --- !u!1 &682629632
@@ -411,7 +412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &682629633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1113,7 +1114,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 345677688}
         m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: onclickaudios
+        m_MethodName: audios
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2324,7 +2325,7 @@ GameObject:
   - component: {fileID: 2000479388}
   - component: {fileID: 2000479387}
   m_Layer: 5
-  m_Name: RegameButton
+  m_Name: PauseButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
