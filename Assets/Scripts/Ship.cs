@@ -71,6 +71,7 @@ public class Ship : MonoBehaviour
         }
         else 
         {
+            audioSource.PlayOneShot(audioClips[0]);
             if (shild)
             {
                 shild = false;
@@ -84,7 +85,6 @@ public class Ship : MonoBehaviour
                 PlayerPrefs.SetInt("Score", scoreManager.score);
                 PlayerPrefs.SetInt("SavedPeople", scoreManager.savedPeopleCount);
                 PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
-                audioSource.PlayOneShot(audioClips[0]);
                 SceneManager.LoadScene("GameOver");
             }
             if (collision.gameObject.CompareTag("Trash"))
