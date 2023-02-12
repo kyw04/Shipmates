@@ -6,15 +6,25 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI scoreText;
     public TextMeshProUGUI lifeTimeText;
+    public TextMeshProUGUI peopleCountText;
+    public TextMeshProUGUI treasureText;
     public Ship Ship;
 
-    private int score;
-    private float lifeTime;
+    [HideInInspector]
+    public int score;
     private int savedPeopleCount;
-    private int treasure;
+    private int treasureCount;
+    private float lifeTime;
 
+    private void Start()
+    {
+        score = 0;
+        savedPeopleCount = 0;
+        treasureCount = 0;
+        lifeTime = 0;
+    }
 
     private void Update()
     {
@@ -26,6 +36,8 @@ public class ScoreManager : MonoBehaviour
     private void TextUpdate()
     {
         lifeTimeText.text = lifeTime.ToString("F2");
-        ScoreText.text = score.ToString();
+        scoreText.text = score.ToString();
+        peopleCountText.text = savedPeopleCount.ToString();
+        treasureText.text = treasureCount.ToString();
     }
 }

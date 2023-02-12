@@ -1,10 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Ship : MonoBehaviour
 {
     public Obstacle obstacle;
     public Background background;
+    public ScoreManager scoreManager;
+    [Range(1f, 5f)]
     public float speed;
 
     private Animator m_animator;
@@ -17,6 +20,7 @@ public class Ship : MonoBehaviour
 
     private void Update()
     {
+        speed += 5f / 180f * Time.deltaTime;
         SetSpeed(speed);
     }
 
@@ -25,8 +29,6 @@ public class Ship : MonoBehaviour
         speed = _value;
         obstacle.speed = speed;
         obstacle.spawnTime = 1.5f - (speed * 0.2f);
-        Debug.Log(obstacle.spawnTime);
-        // Speed Range 1~5
         m_animator.speed = speed;
         background.SetAnimationSpeed(speed);
     }
@@ -35,8 +37,8 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
+            PlayerPrefs.SetInt("Score", scoreManager.score);
             SceneManager.LoadScene("GameOver");
-            Debug.Log("collision");
         }
     }
 }
