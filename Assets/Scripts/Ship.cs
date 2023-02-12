@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     public Background background;
     public ScoreManager scoreManager;
     public ShipMove shipMove;
+    public Animator oilAnimator;
     [Range(1f, 5f)]
     public float speed;
 
@@ -49,7 +50,6 @@ public class Ship : MonoBehaviour
         {
             if (shild)
             {
-                Destroy(collision.gameObject);
                 shild = false;
                 shipMove.shildImage.SetActive(false);
                 return;
@@ -61,30 +61,27 @@ public class Ship : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trash"))
         {
-            Destroy(collision.gameObject);
             shipMove.flip = true;
             flipDelay = Time.time + 3;
         }
         if (collision.gameObject.CompareTag("Treasure"))
         {
-            Destroy(collision.gameObject);
             scoreManager.treasureCount++;
         }
         if (collision.gameObject.CompareTag("People"))
         {
-            Destroy(collision.gameObject);
             scoreManager.savedPeopleCount++;
-        }
-        if (collision.gameObject.CompareTag("HitPeople"))
-        {
-            Destroy(collision.transform.parent.gameObject);
         }
         if (collision.gameObject.CompareTag("Shild"))
         {
             shild = true;
             shipMove.shildImage.SetActive(true);
-
-            Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("Oil"))
+        {
+            oilAnimator.Play("ShowOil");
+        }
+
+        Destroy(collision.gameObject);
     }
 }
