@@ -1,8 +1,6 @@
 using System;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEditor.PlayerSettings;
 
 public class Ship : MonoBehaviour
 {
@@ -12,6 +10,8 @@ public class Ship : MonoBehaviour
     public ShipMove shipMove;
     public Animator oilAnimator;
     public GameObject arrow;
+    public AudioSource audioSource;
+    public AudioClip[] audioClips;
     [Range(1f, 5f)]
     public float speed;
 
@@ -51,10 +51,12 @@ public class Ship : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Treasure"))
         {
+            audioSource.PlayOneShot(audioClips[2]);
             scoreManager.treasureCount++;
         }
         else if (collision.gameObject.CompareTag("People"))
         {
+            audioSource.PlayOneShot(audioClips[2]);
             scoreManager.savedPeopleCount++;
         }
         else if (collision.gameObject.CompareTag("HitPeople"))
@@ -63,6 +65,7 @@ public class Ship : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Shild"))
         {
+            audioSource.PlayOneShot(audioClips[2]);
             shild = true;
             shipMove.shildImage.SetActive(true);
         }
@@ -81,6 +84,7 @@ public class Ship : MonoBehaviour
                 PlayerPrefs.SetInt("Score", scoreManager.score);
                 PlayerPrefs.SetInt("SavedPeople", scoreManager.savedPeopleCount);
                 PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
+                audioSource.PlayOneShot(audioClips[0]);
                 SceneManager.LoadScene("GameOver");
             }
             if (collision.gameObject.CompareTag("Trash"))
@@ -95,6 +99,8 @@ public class Ship : MonoBehaviour
             }
             if (collision.gameObject.CompareTag("Tire"))
             {
+                audioSource.PlayOneShot(audioClips[1]);
+
                 int condition = shipMove.condition + 1;
                 if (shipMove.index == 1)
                 {

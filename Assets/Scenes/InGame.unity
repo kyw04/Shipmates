@@ -2690,6 +2690,11 @@ MonoBehaviour:
   shipMove: {fileID: 944367922}
   oilAnimator: {fileID: 211656674}
   arrow: {fileID: 1976837302}
+  audioSource: {fileID: 1419039914}
+  audioClips:
+  - {fileID: 8300000, guid: 4493ae0643a961245be4e379c2f3d227, type: 3}
+  - {fileID: 8300000, guid: a61899e320eb816478f462f615362a36, type: 3}
+  - {fileID: 8300000, guid: 3a0041b565fac4a4e83a76a384bbdf7f, type: 3}
   speed: 1
 --- !u!1 &1590096305
 GameObject:
