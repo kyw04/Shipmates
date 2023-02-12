@@ -47,6 +47,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
     public void changeScene()
     {
+        PlayerPrefs.SetInt("BestScore", bestScore);
         SceneManager.LoadScene("Lobby");
     }
 }
