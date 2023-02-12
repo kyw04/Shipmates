@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Obstacle : MonoBehaviour
 {
@@ -43,8 +44,15 @@ public class Obstacle : MonoBehaviour
 
             if (obstaclePrefab[prefabIndex].CompareTag("LightHouse"))
             {
-                postionIndex = 1;
-                Scale = new Vector3(-1, 1, 1);
+                int i = Random.Range(0, 2);
+                i = i == 0 ? -1 : i;
+
+                Scale = new Vector3(i, 1, 1);
+                GameObject newOb2 = Instantiate(obstaclePrefab[prefabIndex], new Vector3(i * 0.75f, startPostion.position.y, 0), Quaternion.identity);
+                newOb2.transform.localScale = Scale;
+                newOb2.GetComponent<MoveDown>().direction = Vector3.down;
+                newOb2.GetComponent<MoveDown>().speed = speed;
+                return;
             }
             else
             {

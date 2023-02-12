@@ -57,6 +57,10 @@ public class Ship : MonoBehaviour
         {
             scoreManager.savedPeopleCount++;
         }
+        else if (collision.gameObject.CompareTag("HitPeople"))
+        {
+            Destroy(collision.transform.parent.gameObject);
+        }
         else if (collision.gameObject.CompareTag("Shild"))
         {
             shild = true;
