@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MoveDown : MonoBehaviour
@@ -7,9 +8,13 @@ public class MoveDown : MonoBehaviour
     public Vector3 direction;
 
     private Vector3 startScale;
+    private Collider2D _collider;
+    private SpriteRenderer _renderer;
     
     private void Start()
     {
+        _collider = GetComponent<Collider2D>();
+        _renderer = GetComponent<SpriteRenderer>();
         Destroy(gameObject, 5f);
         startScale = transform.localScale;
         transform.localScale = Vector3.zero;
@@ -21,5 +26,11 @@ public class MoveDown : MonoBehaviour
 
         transform.position += direction * speed * Time.deltaTime;
         transform.localScale += startScale * speed * scale * Time.deltaTime;
+
+        if (transform.position.y <= -2)
+        {
+            _renderer.sortingOrder = 20;
+            _collider.enabled = false;
+        }
     }
 }
