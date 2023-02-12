@@ -858,6 +858,7 @@ MonoBehaviour:
   numberImage: {fileID: 758972287}
   SettingsPage: {fileID: 1156841966}
   PauseButton: {fileID: 2000479385}
+  touch: {fileID: 944367917}
   isPause: 0
   unpaused: 0
 --- !u!114 &670712548
@@ -1239,6 +1240,7 @@ RectTransform:
   - {fileID: 758972288}
   - {fileID: 1156841967}
   - {fileID: 944367918}
+  - {fileID: 2000479386}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1745,7 +1747,6 @@ RectTransform:
   - {fileID: 480793954}
   - {fileID: 1590096306}
   - {fileID: 468944461}
-  - {fileID: 2000479386}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2112,6 +2113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126267033}
   - component: {fileID: 1126267034}
+  - component: {fileID: 1216374210}
   m_Layer: 3
   m_Name: Shild
   m_TagString: Untagged
@@ -2119,6 +2121,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!95 &1216374210
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216374209}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff5d23b909cb24b4c9ec9773c395c535, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1291695481
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,7 +3038,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1049271975}
+  m_Father: {fileID: 855950849}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

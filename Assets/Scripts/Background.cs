@@ -6,7 +6,7 @@ public class Background : MonoBehaviour
 {
     private Animator m_Animator;
 
-    private void Start()
+    private void Awake()
     {
         m_Animator = GetComponent<Animator>();
     }
