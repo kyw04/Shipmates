@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3802f4eb7f9c64b4a85989cfa87d0ed3
+guid: 17c206593924d3f4ba24859d31e89504
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Background_258_0
+      name: background_2_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 2
-        width: 150
-        height: 254
+        x: 66
+        y: 0
+        width: 133
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba32033712f9544419ba6f6cfb962cc1
-      internalID: 448576196
+      spriteID: ba65844037fc4fb49847c1d47e7adec3
+      internalID: 743085190
       vertices: []
       indices: 
       edges: []
@@ -142,7 +142,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 42ed65d27ea63a04f95983f90a1c373e
+    spriteID: 470fd0d72fc534e439824ca444b44f86
     internalID: 0
     vertices: []
     indices: 
@@ -150,7 +150,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Background_258_0: 448576196
+      background_2_0: 743085190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
