@@ -20,6 +20,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
     private int currentScore;
     private int step;
     private int progressScore = 0;
+    private bool scoreLoaded = false;
 
     private void Start()
     {
@@ -39,7 +40,16 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        changeScene();
+        if (!scoreLoaded)
+        {
+            scoreLoaded = true;
+            StopCoroutine(Score());
+
+            if (bestScore < currentScore) bestScore = currentScore;
+
+            currentScoreGUI.text = currentScore.ToString();
+            bestScoreGUI.text = bestScore.ToString();
+        } else changeScene();
     }
 
     public void changeScene()
@@ -57,7 +67,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
             currentScoreGUI.text = progressScore.ToString();
 
             yield return new WaitForSeconds(0.05f);
-
+            if (scoreLoaded) break;
             if (currentScore == progressScore) break;
         }
         if (bestScore < currentScore) bestScore = currentScore;
@@ -65,6 +75,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
         PlayerPrefs.SetInt("BestScore", bestScore);
 
         bestScoreGUI.text = bestScore.ToString();
+        scoreLoaded = true;
     }
 
 }
