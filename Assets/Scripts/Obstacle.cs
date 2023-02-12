@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour
     public Transform startPostion;
 
     public float spawnTime = 0.5f;
+    public float speed;
     private float currentTime = 0;
 
     private int postionIndex;
@@ -22,6 +23,7 @@ public class Obstacle : MonoBehaviour
 
             GameObject newOb = Instantiate(obstaclePrefab[prefabIndex], startPostion);
             newOb.GetComponent<MoveDown>().direction = (endPostions[postionIndex].position - startPostion.position).normalized;
+            newOb.GetComponent<MoveDown>().speed = speed;
         }
     }
 }

@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 510675428}
   - component: {fileID: 510675427}
   - component: {fileID: 510675429}
+  - component: {fileID: 510675430}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -259,6 +260,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &510675430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 510675426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a45e2afabf9a047b2e384c7ee76bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &670712541
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,12 +356,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab:
   - {fileID: 5754350746787885445, guid: 13931bb7fd3b72043809cf979dea2fea, type: 3}
+  - {fileID: 5754350746787885445, guid: 90fcc316b9c8fb04e8087cb7e4a7800d, type: 3}
   endPostions:
   - {fileID: 1081891367}
   - {fileID: 766928623}
   - {fileID: 1699904012}
   startPostion: {fileID: 455046764}
   spawnTime: 1.5
+  speed: 0
 --- !u!114 &670712547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,6 +1646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80971f6da5ad2034f8d2816e820abb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  obstacle: {fileID: 670712546}
+  background: {fileID: 510675430}
+  speed: 1
 --- !u!1 &1699904011
 GameObject:
   m_ObjectHideFlags: 0

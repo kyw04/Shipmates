@@ -32,18 +32,28 @@ public class ShipMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
         if (direction > condition)
         {
             index--;
-            m_Animator.Play("LeftBoat");
             Debug.Log("left");
         }
         if (direction < -condition)
         {
             index++;
-            m_Animator.Play("RightBoat");
             Debug.Log("right");
         }
-        if (index == 1)
+
+        
+        if (index <= 0)
+        {
+            m_Animator.Play("LeftBoat");
+            index = 0;
+        }
+        else if(index == 1)
         {
             m_Animator.Play("StandingBoat");
+        }
+        else
+        {
+            m_Animator.Play("RightBoat");
+            index = postions.Length - 1;
         }
 
         ship.transform.position = postions[index].position;
