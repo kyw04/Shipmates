@@ -24,6 +24,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
     private void Start()
     {
+        PlayerPrefs.SetInt("BestScore", 500);
         score = PlayerPrefs.GetInt("Score");
         savedPeople = PlayerPrefs.GetInt("SavedPeople");
         savedPeopleGUI.text = savedPeople.ToString();
@@ -54,21 +55,31 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
     public void changeScene()
     {
+        Color color;
+        ColorUtility.TryParseHtmlString("#FFFFFF", out color);
         progressScore = 0;
         step = 0;
+        currentScoreGUI.color = color;
         SceneManager.LoadScene("Lobby");
     }
 
     IEnumerator Score()
     {
+        Color color;
+        ColorUtility.TryParseHtmlString("#FFFD00", out color);
         while (true)
         {
             progressScore = Mathf.Min(currentScore, progressScore + step);
             currentScoreGUI.text = progressScore.ToString();
+            if (progressScore > bestScore)
+            {
+                currentScoreGUI.color = color;
+                bestScoreGUI.text = progressScore.ToString();
+            }
 
-            yield return new WaitForSeconds(0.05f);
             if (scoreLoaded) break;
             if (currentScore == progressScore) break;
+            yield return new WaitForSeconds(0.05f);
         }
         if (bestScore < currentScore) bestScore = currentScore;
 
