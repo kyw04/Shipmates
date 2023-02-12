@@ -4,6 +4,7 @@ public class Pause : MonoBehaviour
 {
     public GameObject numberImage;
     public GameObject SettingsPage;
+    public GameObject PauseButton;
     public bool isPause = false;
     public bool unpaused = false; 
     
@@ -33,12 +34,14 @@ public class Pause : MonoBehaviour
             Debug.Log("unpause");
             animator.Play("ShowTime");
             SettingsPage.SetActive(false);
+            PauseButton.SetActive(true);
             unpaused = true;
         }
         if (isPause == false)
         {
             isPause = true;
             SettingsPage.SetActive(true);
+            PauseButton.SetActive(false);
             Time.timeScale = 0f;
             Debug.Log("pause");
         } 

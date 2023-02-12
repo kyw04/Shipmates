@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+
     public bool audio1 = true;
     public AudioSource theaudio;
+    public GameObject BGMplayer;
     [SerializeField] private AudioClip[] clips;
 
     private void Start()
@@ -16,25 +18,20 @@ public class SoundManager : MonoBehaviour
     {
         if (audio1 == true)
         {
-            theaudio.Stop();
+            BGMplayer.SetActive(false);
             audio1 = false;
+            theaudio.Stop();
         }
         if (audio1 == false)
         {
-            theaudio.Play();
+            BGMplayer.SetActive(true);
             audio1 = true;
+            theaudio.Play();
         }
     }
-
-    public void SetMusicVolume(float volume)
-    {
-        theaudio.volume = volume;
-        //theaudio.volume = 1.0f;
-    }
-
-    public void Play()
+    public void audios()
     {
         theaudio.clip = clips[0];
-        theaudio.Play();
+        
     }
 }
