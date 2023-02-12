@@ -6,16 +6,16 @@ public class Ship : MonoBehaviour
     public Obstacle obstacle;
     public Background background;
     public ScoreManager scoreManager;
+    public ShipMove shipMove;
     [Range(1f, 5f)]
     public float speed;
 
-    private GameObject shildImage;
     private Animator m_animator;
     private bool shild;
+    private float flipDelay;
 
     private void Start()
     {
-        shildImage = transform.GetChild(0).gameObject;
         m_animator = GetComponent<Animator>();
         SetSpeed(speed);
     }
@@ -24,6 +24,13 @@ public class Ship : MonoBehaviour
     {
         speed += 5f / 180f * Time.deltaTime;
         SetSpeed(speed);
+
+        if (flipDelay < Time.time)
+        {
+            shipMove.flip = false;
+            flipDelay = 0;
+        }
+
     }
 
     private void SetSpeed(float _value)
@@ -44,13 +51,19 @@ public class Ship : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 shild = false;
-                shildImage.SetActive(false);
+                shipMove.shildImage.SetActive(false);
                 return;
             }
             PlayerPrefs.SetInt("Score", scoreManager.score);
-            PlayerPrefs.SetInt("People", scoreManager.savedPeopleCount);
+            PlayerPrefs.SetInt("SavedPeople", scoreManager.savedPeopleCount);
             PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
             SceneManager.LoadScene("GameOver");
+        }
+        if (collision.gameObject.CompareTag("Trash"))
+        {
+            Destroy(collision.gameObject);
+            shipMove.flip = true;
+            flipDelay = Time.time + 3;
         }
         if (collision.gameObject.CompareTag("Treasure"))
         {
@@ -69,7 +82,7 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.CompareTag("Shild"))
         {
             shild = true;
-            shildImage.SetActive(true);
+            shipMove.shildImage.SetActive(true);
 
             Destroy(collision.gameObject);
         }

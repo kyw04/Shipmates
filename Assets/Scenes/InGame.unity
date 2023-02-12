@@ -683,11 +683,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab:
-  - {fileID: 5754350746787885445, guid: 13931bb7fd3b72043809cf979dea2fea, type: 3}
   - {fileID: 5754350746787885445, guid: 90fcc316b9c8fb04e8087cb7e4a7800d, type: 3}
+  - {fileID: 5754350746787885445, guid: 13931bb7fd3b72043809cf979dea2fea, type: 3}
   - {fileID: 5754350746787885445, guid: 43280d7f22067b14283c944eecf72665, type: 3}
-  - {fileID: 5754350746787885445, guid: a5c0e3b369ec10f45b66c10389f6a5ce, type: 3}
   - {fileID: 5754350746787885445, guid: eb2434e1b4afdc4459ca8673f4731355, type: 3}
+  - {fileID: 5754350746787885445, guid: a5c0e3b369ec10f45b66c10389f6a5ce, type: 3}
+  percentages:
+  - 90
+  - 5
+  - 2
+  - 2
+  - 1
   endPostions:
   - {fileID: 1081891367}
   - {fileID: 766928623}
@@ -1224,7 +1230,9 @@ MonoBehaviour:
   - {fileID: 1081891367}
   - {fileID: 766928623}
   - {fileID: 1699904012}
+  shildImage: {fileID: 0}
   condition: 100
+  flip: 0
 --- !u!1 &1031271132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,6 +1605,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126267033}
   - component: {fileID: 1126267034}
+  - component: {fileID: 1126267035}
   m_Layer: 3
   m_Name: Shild
   m_TagString: Untagged
@@ -1612,7 +1621,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126267032}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1659,9 +1668,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 5545b9acd70bbb349884b57f42389317, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.6313726}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: fba99dab06b465c459b32ac37aa176b9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.6313726}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1671,6 +1680,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1126267035
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126267032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff5d23b909cb24b4c9ec9773c395c535, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1159102900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,7 +1893,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.28, y: 1.28}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -1918,7 +1947,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2002,6 +2031,7 @@ MonoBehaviour:
   obstacle: {fileID: 670712546}
   background: {fileID: 510675430}
   scoreManager: {fileID: 670712548}
+  shipMove: {fileID: 944367922}
   speed: 1
 --- !u!1 &1590096305
 GameObject:
@@ -2092,7 +2122,7 @@ GameObject:
   - component: {fileID: 1685921135}
   - component: {fileID: 1685921136}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SeaWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

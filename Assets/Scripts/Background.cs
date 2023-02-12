@@ -8,7 +8,7 @@ public class Background : MonoBehaviour
 
     private void Start()
     {
-        m_Animator = GetComponent<Animator>();
+        m_Animator = GetComponentInChildren<Animator>();
     }
 
     public void SetAnimationSpeed(float _speed)
