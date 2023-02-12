@@ -10,9 +10,11 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
     public TextMeshProUGUI currentScoreGUI;
     public TextMeshProUGUI savedPeopleGUI;
     public TextMeshProUGUI treasureGUI;
+    public TextMeshProUGUI savedPeopleScoreGUI;
+    public TextMeshProUGUI treasureScoreGUI;
 
     private int score;
-    private int people;
+    private int savedPeople;
     private int treasure;
     private int bestScore;
     private int currentScore;
@@ -22,11 +24,15 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
     private void Start()
     {
         score = PlayerPrefs.GetInt("Score");
-        people = PlayerPrefs.GetInt("People");
+        savedPeople = PlayerPrefs.GetInt("SavedPeople");
+        savedPeopleGUI.text = savedPeople.ToString();
+        savedPeopleScoreGUI.text = "+" + savedPeople * 500;
         treasure = PlayerPrefs.GetInt("Treasure");
+        treasureGUI.text = treasure.ToString();
+        treasureScoreGUI.text = "+" + treasure * 300;
         bestScore = PlayerPrefs.GetInt("BestScore");
         bestScoreGUI.text = bestScore.ToString();
-        currentScore = score + (people * 500) + (treasure * 300);
+        currentScore = score + (savedPeople * 500) + (treasure * 300);
         step = (int) Mathf.Max(Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10 + Random.Range(0, Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10) * 0.2f, 1);
         StartCoroutine(Score());
     }
