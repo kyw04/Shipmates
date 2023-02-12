@@ -20,6 +20,6 @@ public class MoveDown : MonoBehaviour
         speed += Time.deltaTime;
 
         transform.position += direction * speed * Time.deltaTime;
-        transform.localScale += startScale * 2 * scale * Time.deltaTime;
+        transform.localScale += startScale * speed * scale * Time.deltaTime;
     }
 }

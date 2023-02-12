@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - Treasure
+  - People
+  - HitPeople
+  - Shild
+  - Trash
   layers:
   - Default
   - TransparentFX

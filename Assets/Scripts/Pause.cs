@@ -20,7 +20,6 @@ public class Pause : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("End"))
         {
-            Debug.Log("2");
             unpaused = false;
             isPause = false;
             Time.timeScale = 1f;
