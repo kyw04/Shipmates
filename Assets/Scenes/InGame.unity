@@ -741,10 +741,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 480793955}
   lifeTimeText: {fileID: 231282199}
-  peopleCountText: {fileID: 0}
-  treasureText: {fileID: 0}
+  peopleCountText: {fileID: 765023118}
+  treasureText: {fileID: 1159102902}
   Ship: {fileID: 1562048745}
   score: 0
+  savedPeopleCount: 0
+  treasureCount: 0
 --- !u!1 &758972287
 GameObject:
   m_ObjectHideFlags: 0

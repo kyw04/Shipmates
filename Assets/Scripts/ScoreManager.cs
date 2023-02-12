@@ -14,8 +14,10 @@ public class ScoreManager : MonoBehaviour
 
     [HideInInspector]
     public int score;
-    private int savedPeopleCount;
-    private int treasureCount;
+    [HideInInspector]
+    public int savedPeopleCount;
+    [HideInInspector]
+    public int treasureCount;
     private float lifeTime;
 
     private void Start()

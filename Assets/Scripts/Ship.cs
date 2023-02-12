@@ -38,6 +38,8 @@ public class Ship : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             PlayerPrefs.SetInt("Score", scoreManager.score);
+            PlayerPrefs.SetInt("People", scoreManager.savedPeopleCount);
+            PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
             SceneManager.LoadScene("GameOver");
         }
     }
