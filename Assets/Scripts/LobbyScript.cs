@@ -19,6 +19,5 @@ public class LobbyScript : MonoBehaviour, IPointerDownHandler
         m_Animator.Play("StartGame");
 
         SceneManager.LoadScene("InGame");
-        
     }
 }

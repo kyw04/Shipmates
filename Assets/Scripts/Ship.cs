@@ -1,16 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Ship : MonoBehaviour
 {
     public GameObject ship;
     public Slider slider;
     public Transform[] postions;
+
+    private Animator m_Animator;
     private int index;
 
     private void Start()
     {
+        m_Animator = GetComponent<Animator>();
         index = 1;
     }
 
@@ -21,12 +25,17 @@ public class Ship : MonoBehaviour
             if (slider.value <= 0.4f && index > 0)
             {
                 index--;
+                m_Animator.Play("LeftBoat");
             }
             else if (slider.value >= 0.6f && index < postions.Length - 1)
             {
                 index++;
+                m_Animator.Play("RightBoat");
             }
-            Debug.Log(index);
+            if (index == 1)
+            {
+                m_Animator.Play("StandingBoat");
+            }
 
             ship.transform.position = postions[index].position;
         }
