@@ -16,8 +16,6 @@ public class LobbyScript : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        m_Animator.Play("StartGame");
-
         SceneManager.LoadScene("InGame");
     }
 }
