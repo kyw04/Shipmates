@@ -10,6 +10,7 @@ TagManager:
   - HitPeople
   - Shild
   - Trash
+  - Oil
   layers:
   - Default
   - TransparentFX
