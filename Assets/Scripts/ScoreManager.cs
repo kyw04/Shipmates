@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        lifeTime = Time.time;
+        lifeTime += Time.deltaTime;
         score = (int)(lifeTime * 1.5f * Ship.speed);
         TextUpdate();
     }
