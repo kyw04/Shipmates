@@ -25,10 +25,15 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
         people = PlayerPrefs.GetInt("People");
         treasure = PlayerPrefs.GetInt("Treasure");
         bestScore = PlayerPrefs.GetInt("BestScore");
+<<<<<<< Updated upstream
         bestScoreGUI.text = bestScore.ToString();
         currentScore = score + (people * 500) + (treasure * 300);
         step = (int) Mathf.Max(Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10 + Random.Range(0, Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10) * 0.2f, 1);
 
+=======
+        currentScore = score + (people * 500) + (treasure * 300);
+        step = (int) Mathf.Max(Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 1000 + Random.Range(-100, 100), 1);
+>>>>>>> Stashed changes
         StartCoroutine(Score());
     }
 
@@ -40,7 +45,10 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
     public void changeScene()
     {
         progressScore = 0;
+<<<<<<< Updated upstream
         step = 0;
+=======
+>>>>>>> Stashed changes
         SceneManager.LoadScene("Lobby");
     }
 
@@ -55,9 +63,15 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
             if (currentScore == progressScore) break;
         }
+<<<<<<< Updated upstream
         if (bestScore < currentScore) bestScore = currentScore;
 
         PlayerPrefs.SetInt("BestScore", bestScore);
+=======
+
+        if (bestScore < currentScore) bestScore = currentScore;
+
+>>>>>>> Stashed changes
         bestScoreGUI.text = bestScore.ToString();
     }
 
