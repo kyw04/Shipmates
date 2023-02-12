@@ -55,6 +55,7 @@ public class Ship : MonoBehaviour
             {
                 shild = false;
                 shipMove.shildImage.SetActive(false);
+                Destroy(collision.gameObject);
                 return;
             }
             PlayerPrefs.SetInt("Score", scoreManager.score);
