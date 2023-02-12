@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
     public void SetMusicVolume(float volume)
     {
         theaudio.volume = volume;
-        theaudio.volume = 1.0f;
+        //theaudio.volume = 1.0f;
     }
 
     public void Play()
