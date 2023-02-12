@@ -790,17 +790,19 @@ MonoBehaviour:
   obstaclePrefab:
   - {fileID: 5754350746787885445, guid: 90fcc316b9c8fb04e8087cb7e4a7800d, type: 3}
   - {fileID: 5754350746787885445, guid: 6865969bebe4b8345942ca060cc0cd18, type: 3}
+  - {fileID: 5754350746787885445, guid: f3256f0737d0bc440bfcdb8a6e99bbbd, type: 3}
   - {fileID: 5754350746787885445, guid: 13931bb7fd3b72043809cf979dea2fea, type: 3}
   - {fileID: 5754350746787885445, guid: 43280d7f22067b14283c944eecf72665, type: 3}
   - {fileID: 5754350746787885445, guid: eb2434e1b4afdc4459ca8673f4731355, type: 3}
   - {fileID: 5754350746787885445, guid: a5c0e3b369ec10f45b66c10389f6a5ce, type: 3}
   percentages:
-  - 80
+  - 55
+  - 10
+  - 10
   - 10
   - 5
-  - 2
-  - 2
-  - 1
+  - 5
+  - 5
   endPostions:
   - {fileID: 1081891367}
   - {fileID: 766928623}
