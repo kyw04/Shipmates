@@ -12,6 +12,7 @@ TagManager:
   - Trash
   - Oil
   - Tire
+  - LightHouse
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class Ship : MonoBehaviour
     public ScoreManager scoreManager;
     public ShipMove shipMove;
     public Animator oilAnimator;
+    public GameObject arrow;
     [Range(1f, 5f)]
     public float speed;
 
@@ -31,10 +32,10 @@ public class Ship : MonoBehaviour
 
         if (flipDelay < Time.time)
         {
+            arrow.SetActive(false);
             shipMove.flip = false;
             flipDelay = 0;
         }
-
     }
 
     private void SetSpeed(float _value)
@@ -48,8 +49,20 @@ public class Ship : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log(collision.tag);
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Treasure"))
+        {
+            scoreManager.treasureCount++;
+        }
+        else if (collision.gameObject.CompareTag("People"))
+        {
+            scoreManager.savedPeopleCount++;
+        }
+        else if (collision.gameObject.CompareTag("Shild"))
+        {
+            shild = true;
+            shipMove.shildImage.SetActive(true);
+        }
+        else 
         {
             if (shild)
             {
@@ -58,51 +71,43 @@ public class Ship : MonoBehaviour
                 Destroy(collision.gameObject);
                 return;
             }
-            PlayerPrefs.SetInt("Score", scoreManager.score);
-            PlayerPrefs.SetInt("SavedPeople", scoreManager.savedPeopleCount);
-            PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
-            SceneManager.LoadScene("GameOver");
-        }
-        if (collision.gameObject.CompareTag("Trash"))
-        {
-            shipMove.flip = true;
-            flipDelay = Time.time + 3;
-        }
-        if (collision.gameObject.CompareTag("Treasure"))
-        {
-            scoreManager.treasureCount++;
-        }
-        if (collision.gameObject.CompareTag("People"))
-        {
-            scoreManager.savedPeopleCount++;
-        }
-        if (collision.gameObject.CompareTag("Shild"))
-        {
-            shild = true;
-            shipMove.shildImage.SetActive(true);
-        }
-        if (collision.gameObject.CompareTag("Oil"))
-        {
-            oilAnimator.Play("ShowOil");
-        }
-        if (collision.gameObject.CompareTag("Tire"))
-        {
-            int condition = shipMove.condition + 1;
-            if (shipMove.index == 1)
+            
+            if (collision.gameObject.CompareTag("Obstacle") || collision.gameObject.CompareTag("LightHouse"))
             {
-                int pos = UnityEngine.Random.Range(0, 2);
-                Debug.Log(pos);
-                pos = pos == 0 ? -condition : condition;
+                PlayerPrefs.SetInt("Score", scoreManager.score);
+                PlayerPrefs.SetInt("SavedPeople", scoreManager.savedPeopleCount);
+                PlayerPrefs.SetInt("Treasure", scoreManager.treasureCount);
+                SceneManager.LoadScene("GameOver");
+            }
+            if (collision.gameObject.CompareTag("Trash"))
+            {
+                shipMove.flip = true;
+                arrow.SetActive(true);
+                flipDelay = Time.time + 3;
+            }
+            if (collision.gameObject.CompareTag("Oil"))
+            {
+                oilAnimator.Play("ShowOil");
+            }
+            if (collision.gameObject.CompareTag("Tire"))
+            {
+                int condition = shipMove.condition + 1;
+                if (shipMove.index == 1)
+                {
+                    int pos = UnityEngine.Random.Range(0, 2);
+                    Debug.Log(pos);
+                    pos = pos == 0 ? -condition : condition;
 
-                shipMove.Move(pos);
-            }
-            else if (shipMove.index == 0)
-            {
-                shipMove.Move(-condition);
-            }
-            else
-            {
-                shipMove.Move(condition);
+                    shipMove.Move(pos);
+                }
+                else if (shipMove.index == 0)
+                {
+                    shipMove.Move(-condition);
+                }
+                else
+                {
+                    shipMove.Move(condition);
+                }
             }
         }
 
