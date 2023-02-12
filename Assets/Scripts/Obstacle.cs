@@ -29,6 +29,7 @@ public class Obstacle : MonoBehaviour
         {
             currentTime = Time.time;
             percentage = Random.Range(0, 100);
+            Vector3 Scale;
             //Debug.Log(percentage);
 
             for (int i = 0; i < obstaclePrefab.Length; i++)
@@ -39,9 +40,20 @@ public class Obstacle : MonoBehaviour
                     break;
                 }
             }
-            postionIndex = Random.Range(0, endPostions.Length);
+
+            if (obstaclePrefab[prefabIndex].CompareTag("LightHouse"))
+            {
+                postionIndex = 1;
+                Scale = new Vector3(-1, 1, 1);
+            }
+            else
+            {
+                postionIndex = Random.Range(0, endPostions.Length);
+                Scale = obstaclePrefab[prefabIndex].transform.localScale;
+            }
 
             GameObject newOb = Instantiate(obstaclePrefab[prefabIndex], startPostion);
+            newOb.transform.localScale = Scale;
             newOb.GetComponent<MoveDown>().direction = (endPostions[postionIndex].position - startPostion.position).normalized;
             newOb.GetComponent<MoveDown>().speed = speed;
         }
