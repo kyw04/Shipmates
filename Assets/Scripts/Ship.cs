@@ -24,7 +24,9 @@ public class Ship : MonoBehaviour
     {
         speed = _value;
         obstacle.speed = speed;
-        obstacle.spawnTime = speed * 0.75f;
+        obstacle.spawnTime = 1.5f - (speed * 0.2f);
+        Debug.Log(obstacle.spawnTime);
+        // Speed Range 1~5
         m_animator.speed = speed;
         background.SetAnimationSpeed(speed);
     }
