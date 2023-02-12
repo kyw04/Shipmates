@@ -12,11 +12,12 @@ public class ShipMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public int condition;
     [HideInInspector]
     public bool flip;
+    [HideInInspector]
+    public int index;
 
     private Animator m_Animator;
     private Animator shild_Animator;
     private float x;
-    private int index;
 
     private void Start()
     {
@@ -41,6 +42,11 @@ public class ShipMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             direction = -direction;
         }
 
+        Move(direction);
+    }
+
+    public void Move(float direction)
+    {
         if (direction > condition)
         {
             index--;
@@ -52,7 +58,7 @@ public class ShipMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
             Debug.Log("right");
         }
 
-        
+
         if (index <= 0)
         {
             m_Animator.Play("LeftBoat");
@@ -65,7 +71,7 @@ public class ShipMove : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             index = 0;
         }
-        else if(index == 1)
+        else if (index == 1)
         {
             m_Animator.Play("StandingBoat");
 

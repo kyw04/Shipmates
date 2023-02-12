@@ -13,7 +13,7 @@ public class Obstacle : MonoBehaviour
 
     private int postionIndex;
     private int prefabIndex;
-    private float percentage;
+    private int percentage;
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class Obstacle : MonoBehaviour
         {
             currentTime = Time.time;
             percentage = Random.Range(0, 100);
-            Debug.Log(percentage);
+            //Debug.Log(percentage);
 
             for (int i = 0; i < obstaclePrefab.Length; i++)
             {
