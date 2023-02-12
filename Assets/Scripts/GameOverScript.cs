@@ -25,8 +25,10 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
         people = PlayerPrefs.GetInt("People");
         treasure = PlayerPrefs.GetInt("Treasure");
         bestScore = PlayerPrefs.GetInt("BestScore");
+        bestScoreGUI.text = bestScore.ToString();
         currentScore = score + (people * 500) + (treasure * 300);
-        step = (int) Mathf.Max(Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 1000 + Random.Range(-100, 100), 1);
+        step = (int) Mathf.Max(Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10 + Random.Range(0, Mathf.Pow(10, Mathf.FloorToInt(Mathf.Log10(currentScore))) / 10) * 0.2f, 1);
+
         StartCoroutine(Score());
     }
 
@@ -38,6 +40,7 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
     public void changeScene()
     {
         progressScore = 0;
+        step = 0;
         SceneManager.LoadScene("Lobby");
     }
 
@@ -52,9 +55,9 @@ public class GameOverScript : MonoBehaviour, IPointerDownHandler
 
             if (currentScore == progressScore) break;
         }
-
         if (bestScore < currentScore) bestScore = currentScore;
 
+        PlayerPrefs.SetInt("BestScore", bestScore);
         bestScoreGUI.text = bestScore.ToString();
     }
 
